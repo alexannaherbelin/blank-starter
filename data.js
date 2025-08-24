@@ -100,4 +100,4 @@ let data = [
   { "model": "Model-098", "gears": 17, "components": "Campagnolo", "tireWidth": 39, "weight": 12.4 },
   { "model": "Model-099", "gears": 7, "components": "SunRace", "tireWidth": 30, "weight": 9.6 },
   { "model": "Model-100", "gears": 26, "components": "Rotor", "tireWidth": 57, "weight": 16.9 }
-]
+];

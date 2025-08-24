@@ -1,6 +1,8 @@
 document.getElementById("savebutton").addEventListener("click",save);
 document.getElementById("returnbutton").addEventListener("click",retrieve);
 document.getElementById("maketablebutton").addEventListener("click",createTable);
+document.getElementById("removetablebutton").addEventListener("click",deleteTable);
+
 const returned = document.getElementById("returned");
 //object
 let person = {name:""}
@@ -21,42 +23,65 @@ function retrieve(){
    console.log("After retrieving: ", retrieved);
 
 }
+
 function createTable(){
   //this is a variable which finds the biketab tag
   const tbody = document.getElementById("biketab");
-  console.log(tbody)
+  //console.log(tbody)
   //cycle through the data set
+
   for(let i = 0; i < data.length; i++){
-    //this creates a floating element called row with a tr tag name <tr>
-    let row = document.createElement("tr");
+
     //this creates a floating element called indexCell with a td tag name <td>
     let indexCell = document.createElement("td");
 
-      indexCell.innerHTML = i + 1;
+    indexCell.innerHTML = i + 1;
 
-      let modelCell = document.createElement("td");
-      modelCell.innerHTML = data[i].model;
+    let linky = document.createElement("a");
+    linky.href = "/detail.html?id=" + i
+    linky.textContent = data[i].model;
+    console.log(linky);
 
-      let gearsCell = document.createElement("td");
-      gearsCell.innerHTML = data[i].gears;
+    let modelCell = document.createElement("td");
+    modelCell.appendChild(linky);
 
-      let componentsCell = document.createElement("td");
-      componentsCell.innerHTML = data[i].components;
+    let gearsCell = document.createElement("td");
+    gearsCell.innerHTML = data[i].gears;
 
-      let tireWidthCell = document.createElement("td");
-      tireWidthCell.innerHTML = data[i].tireWidth;
+    let componentsCell = document.createElement("td");
+    componentsCell.innerHTML = data[i].components;
 
-      let weightCell = document.createElement("td");
-      weightCell.innerHTML = data[i].weight;
+    let tireWidthCell = document.createElement("td");
+    tireWidthCell.innerHTML = data[i].tireWidth;
 
-      row.appendChild(indexCell);
-      row.appendChild(modelCell);
-      row.appendChild(gearsCell);
-      row.appendChild(componentsCell);
-      row.appendChild(tireWidthCell);
-      row.appendChild(weightCell);
+    let weightCell = document.createElement("td");
+    weightCell.innerHTML = data[i].weight;
 
+    //this creates a floating element called row with a tr tag name <tr>
+    let row = document.createElement("tr");
 
-      tbody.appendChild(row);
+    row.appendChild(indexCell);
+    row.appendChild(modelCell);
+    row.appendChild(gearsCell);
+    row.appendChild(componentsCell);
+    row.appendChild(tireWidthCell);
+    row.appendChild(weightCell);
+
+    tbody.appendChild(row);
   }
+}
+
+function deleteTable(){
+//  console.log("Hello World!");
+  const tbody = document.getElementById("biketab");
+
+  //console.log("Number of rows: ", tbody.childNodes.length);
+
+  //console.log(tbody.childNodes.length);
+
+  // keep the header row
+  while (tbody.childNodes.length > 1) {
+    tbody.childNodes[1].remove();
+  }
+
 }
