@@ -3,9 +3,11 @@ document.getElementById("canceleditbutton").addEventListener("click",cancelEdits
 
 const queryString = window.location.search;
 
-const arrayOfTypes = ["Model:", "Gears:", "Components:", "Tire Width:", "Weight:"]
+const arrayOfTypes = ["model", "gears", "components", "tirewidth", "weight"];
 
-const edits = document.getElementById("edits")
+const parts = document.getElementById("parts");
+
+const edits = document.getElementById("edits");
 
 // Parse it using URLSearchParams
 const parameters = new URLSearchParams(queryString);
@@ -27,9 +29,28 @@ for(let i = 0; i<data.length; i++){
 
 function saveEdits(){
 
+
+
     for(let c = 0; c < arrayOfTypes.length; c++){
-        if(edits.include(arrayOfTypes[c])){
+        if(parts.value == arrayOfTypes[c]){
+
+            console.log (arrayOfTypes[c]);
+
+            //changed is the thing to be changed from the dropdown menu.
+            changed = arrayOfTypes[c];
+            console.log(typeof changed);
+            //change is the type from the data set of that object. ex. Model-013
+            change = data[id][changed];
+            console.log(change);
+
+            console.log(edits.value);
+
+            data[id][changed] = edits.value;
+            console.log (data[id][changed]);
             
+            
+
+
         }
     }
 
