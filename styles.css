@@ -1,3 +1,9 @@
 body {
-    background-color: rgb(126, 176, 245);
+    background-color: rgb(103, 156, 230);
+}
+
+#biketable {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  background-color:rgb(55, 174, 207)
 }
