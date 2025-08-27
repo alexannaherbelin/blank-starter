@@ -16,19 +16,28 @@ const parameters = new URLSearchParams(queryString);
 const id = parameters.get('id');
 console.log(id);
 
+const stringedits = JSON.stringify(data);
+
+localStorage.setItem("data", stringedits);//*********** */
+
+let fish = localStorage.getItem("data");
+
+fish = JSON.parse(fish)
+
 for(let i = 0; i<data.length; i++){
     if(i == id){
-        document.getElementById("detailinfo").innerHTML = "Model: " + data[id].model
-         + "<br/>Gears: " + data[id].gears
-         + "<br/>Components: " + data[id].components
-         + "<br/>Tire Width: " + data[id].tireWidth
-         + "<br/>Weight: " + data[id].weight;
+        document.getElementById("detailinfo").innerHTML = "Model: " + fish[id].model
+         + "<br/>Gears: " + fish[id].gears
+         + "<br/>Components: " + fish[id].components
+         + "<br/>Tire Width: " + fish[id].tireWidth
+         + "<br/>Weight: " + fish[id].weight;
  
     }
 }
 
 function saveEdits(){
-
+    
+    console.log(localStorage);
 
 
     for(let c = 0; c < arrayOfTypes.length; c++){
@@ -41,13 +50,22 @@ function saveEdits(){
             console.log(typeof changed);
             //change is the type from the data set of that object. ex. Model-013
             change = data[id][changed];
-            console.log(change);
+//            console.log(change);
 
-            console.log(edits.value);
+ //           console.log(edits.value);
 
-            data[id][changed] = edits.value;
-            console.log (data[id][changed]);
-            
+//            data[id][changed] = edits.value;
+//            console.log (data[id][changed]);
+
+
+            tobechanged = JSON.parse(localStorage.getItem("data"));
+            tobechanged[id][changed] = edits.value;
+
+            newdata = tobechanged;
+            newnewdata = JSON.stringify(newdata)
+            localStorage.setItem("data", newnewdata);
+            console.log(localStorage);
+
             
 
 
