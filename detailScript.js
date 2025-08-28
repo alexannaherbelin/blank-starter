@@ -1,5 +1,8 @@
 document.getElementById("saveeditbutton").addEventListener("click",saveEdits);
 document.getElementById("canceleditbutton").addEventListener("click",cancelEdits);
+document.getElementById("goToEditScreen").addEventListener("click",editScreen);
+
+
 
 const queryString = window.location.search;
 
@@ -16,9 +19,9 @@ const parameters = new URLSearchParams(queryString);
 const id = parameters.get('id');
 console.log(id);
 
-const stringedits = JSON.stringify(data);
+//const stringedits = JSON.stringify(data);
 
-localStorage.setItem("data", stringedits);//*********** */
+//localStorage.setItem("data", stringedits);//*********** */
 
 let fish = localStorage.getItem("data");
 
@@ -74,5 +77,10 @@ function saveEdits(){
 
 }
 function cancelEdits(){
+    document.getElementById("edits").value = ""
+}
 
+function editScreen(){
+    editing = document.getElementById("editItem")
+    editing.style.display="none"
 }
