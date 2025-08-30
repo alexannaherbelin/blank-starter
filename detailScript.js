@@ -2,8 +2,6 @@ document.getElementById("saveeditbutton").addEventListener("click",saveEdits);
 document.getElementById("canceleditbutton").addEventListener("click",cancelEdits);
 document.getElementById("goToEditScreen").addEventListener("click",editScreen);
 
-
-
 const queryString = window.location.search;
 
 const arrayOfTypes = ["model", "gears", "components", "tirewidth", "weight"];
@@ -17,15 +15,13 @@ const parameters = new URLSearchParams(queryString);
 
 // Example: Get a query parameter named 'id'
 const id = parameters.get('id');
-console.log(id);
 
 //const stringedits = JSON.stringify(data);
 
-//localStorage.setItem("data", stringedits);//*********** */
 
-let fish = localStorage.getItem("data");
 
-fish = JSON.parse(fish)
+
+let fish = JSON.parse(localStorage.getItem("data"));
 
 for(let i = 0; i<data.length; i++){
     if(i == id){
@@ -81,6 +77,13 @@ function cancelEdits(){
 }
 
 function editScreen(){
-    editing = document.getElementById("editItem")
-    editing.style.display="none"
+    editing = document.getElementById("editItem");
+    console.log(editing);
+    if(editing.style.display === "none"){
+        editing.style.display = "block"
+
+    }else{
+        editing.style.display = "none"
+    }
+
 }
