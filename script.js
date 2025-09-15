@@ -93,7 +93,7 @@ function deleteTable(){
   while (tbody.childNodes.length > 1) {
     tbody.childNodes[1].remove();
   }
-
+ 
 }
 
 function addNewRow(){
