@@ -2,6 +2,7 @@ document.getElementById("savebutton").addEventListener("click",save);
 document.getElementById("returnbutton").addEventListener("click",retrieve);
 document.getElementById("maketablebutton").addEventListener("click",createTable);
 document.getElementById("removetablebutton").addEventListener("click",deleteTable);
+document.getElementById("addNewRow").addEventListener("click",addNewRow);
 
 const returned = document.getElementById("returned");
 //object
@@ -61,7 +62,7 @@ function createTable(){
     componentsCell.innerHTML = fishy[i].components;
 
     let tireWidthCell = document.createElement("td");
-    tireWidthCell.innerHTML = fishy[i].tireWidth;
+    tireWidthCell.innerHTML = fishy[i].tirewidth;
 
     let weightCell = document.createElement("td");
     weightCell.innerHTML = fishy[i].weight;
@@ -95,4 +96,6 @@ function deleteTable(){
 
 }
 
-
+function addNewRow(){
+  window.location.href = "add.html"
+}

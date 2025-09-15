@@ -2,6 +2,9 @@ document.getElementById("saveeditbutton").addEventListener("click",saveEdits);
 document.getElementById("canceleditbutton").addEventListener("click",cancelEdits);
 document.getElementById("goToEditScreen").addEventListener("click",editScreen);
 
+
+
+
 const queryString = window.location.search;
 
 const arrayOfTypes = ["model", "gears", "components", "tirewidth", "weight"];
@@ -28,7 +31,7 @@ for(let i = 0; i<data.length; i++){
         document.getElementById("detailinfo").innerHTML = "Model: " + fish[id].model
          + "<br/>Gears: " + fish[id].gears
          + "<br/>Components: " + fish[id].components
-         + "<br/>Tire Width: " + fish[id].tireWidth
+         + "<br/>TireWidth: " + fish[id].tirewidth
          + "<br/>Weight: " + fish[id].weight;
  
     }
